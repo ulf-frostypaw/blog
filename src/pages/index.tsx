@@ -1,92 +1,89 @@
+import {useEffect, useState} from 'react'
 import Head from "next/head"
 import Link from "next/link"
+import Header from '../components/Header'
 import {FaReact, FaHtml5, FaCss3Alt, FaPhp, FaTwitter} from 'react-icons/fa'
-import {SiNextdotjs, SiJavascript, SiGithub, SiTelegram} from 'react-icons/si'
+import {SiNextdotjs, SiGithub, SiTelegram} from 'react-icons/si'
 export default function Home() {
+  const [avatarURL, setAvatarURL] = useState();
+
+  
+  useEffect(() => {
+    fetch("https://api.github.com/users/ulf-frostypaw")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log(result);
+          setAvatarURL(result.avatar_url);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, []);
+
   return (
     <>
     <Head>
       <title>Ulf FrostyPaw</title>
     </Head>
-    <div className="container-grid">
+    <Header />
+    <div className="container">
       <div className="hero">
-        <h2>Hola, soy</h2>
-        <h1>Ulf FrostyPaw</h1>
-        <p>Soy un programador web que dedica su mayor parte del tiempo en aprender cosas interesantes y compartirlas con el resto del mundo.</p>
+        <h1>Hola, soy Ulf</h1>
+        <p>Un desarrollador web con muchos sueños y ganas de compartir sus conocimientos con el mundo.</p>
+        <div className="hero-icons">
+          <Link href="https://github.com/ulf-frostypaw"><SiGithub className='icon github' target='_blank' /></Link>
+          <Link href="https://t.me/UlfFrostyPaw"><SiTelegram className='icon telegram' target='_blank' /></Link>
+          <Link href="https://twitter.com/UlfFrostyPaw"><FaTwitter className='icon twitter' target='_blank' /></Link>
+        </div>
       </div>
     </div>
-    <div className="div-black"></div>
-    <div className="container-grid">
-      <div className="content">
-        <h1>Proyectos</h1>
-        <span>Algunos proyectos en los que he trabajado. </span>
-        <div className="container">
-          <div className="card">
-            <h3>FurrApp</h3>
-            <small>Una red social para furries.</small>
-            <div className="links">
-              <Link href="#" className="button">Ver repo</Link>
-              <Link href="#" className="button">Saber más</Link>
+    <div className="container">
+      <div className="about">
+        <h2>Sobre mi</h2>
+        <p>Soy un desarrollador Jr. con cinco años de experiencia(siento que todo el tiempo aprendo algo nuevo y sinceramente no me siento <i>"preparado"</i> para estar al siguiente nivel). Desde temprana edad la tecnología ha sido algo de lo que me ha atraído siempre, todo empezó con los simples juegos en Flash. <br /> Me gusta escribir, me gusta aprender idiomas, me fascina convivir con nuevas personas y escuchar todas sus experiencias.</p>
+        <div className="flex">
+          <img src={avatarURL} className='avatar' alt="" />
+          <div className="tech">
+            <div className="about-content">
+              <h2>Font-end</h2>
+              <div className="hero-icons">
+                <div className="card">
+                  <FaReact className='icon react' />
+                </div>
+                <div className="card">
+                  <SiNextdotjs className='icon' />
+                </div>
+                <div className="card">
+                  <FaHtml5 className='icon html5' />
+                </div>
+                <div className="card">
+                  <FaCss3Alt className='icon css3' />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="div-black"></div>
-    <div className="container-grid">
-      <div className="content">
-        <h1>Herramientas de desarrollo</h1>
-        <div className="container">
-          <div className="card">
-              <SiJavascript size={'5rem'} />
-            <small>JavaScript</small>
-          </div>
-          <div className="card">
-              <FaReact size={'5rem'} />
-            <small>React</small>
-          </div>
-          <div className="card">
-              <SiNextdotjs size={'5rem'} />
-            <small>Next JS</small>
-          </div>
-          <div className="card">
-              <FaHtml5 size={'5rem'} />
-            <small>HTML</small>
-          </div>
-          <div className="card">
-              <FaCss3Alt size={'5rem'} />
-            <small>CSS</small>
-          </div>
-          <div className="card">
-              <FaPhp size={'5rem'} />
-            <small>PHP</small>
-          </div>
 
+            <div className="about-content">
+              <h2>Back-end</h2>
+              <div className="hero-icons">
+                <div className="card">
+                  <FaPhp className='icon php' />
+                </div>
+              </div>
+              
+          </div>
+          </div>
         </div>
       </div>
     </div>
-    <div className="div-black"></div>
-    <div className="container-grid">
-      <div className="content">
-        <h1>Contacto</h1>
-        <div className="container">
-          <Link href={'https://twitter.com/UlfFrostyPaw'} target="_blank" className="card">
-            <FaTwitter  size={'5rem'}/>
-            <small>Twitter</small>
-          </Link>
-          <Link href={'https://github.com/ulf-frostypaw/'} target="_blank" className="card">
-            <SiGithub  size={'5rem'}/>
-            <small>Twitter</small>
-          </Link>
-          <Link href={'https://t.me/UlfFrostyPaw/'} target="_blank" className="card">
-            <SiTelegram  size={'5rem'}/>
-            <small>Telegram</small>
-          </Link>
-        </div>
+    <div className="container">
+      <div className="projects">
+        <h2>Proyectos</h2>
       </div>
     </div>
     <footer>
-        <p>Creado por Ulf FrostyPaw</p>
+        <p>Hecho con ❤️</p>
     </footer>
     </>
   )
