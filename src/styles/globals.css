@@ -17,6 +17,7 @@ body{
   color: var(--color-light);
   background-image: url('https://pbs.twimg.com/profile_banners/1189017719808487424/1644894275/1500x500');
   background-repeat: no-repeat;
+  
 }
 
 h1{
@@ -30,7 +31,7 @@ h2{
 h3{
   margin: 5px;
 }
-h3 a{
+h2 a{
   color: var(--color-light);
   text-decoration: none;
 }
@@ -39,10 +40,7 @@ h3 a{
   width: 90%;
   margin: auto;
   justify-content: space-between;
-}
-.middle{
-  width: 80%;
-  margin: auto;
+  scroll-behavior: smooth;
 }
 .left{
   align-items: center;
@@ -52,11 +50,13 @@ nav{
   width: 100%;
   background: linear-gradient(90deg, #080509, var(--color-navbar), #080509);
   display: flex;
-  padding: 15px 0;
+  padding: 5px 0;
   align-items: center;
   justify-content: space-between;
   position: sticky;
   top: 0;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgb(12 12 12);
 }
 footer{
   width: 100%;
@@ -99,6 +99,7 @@ footer{
   color: var(--color-light);
 
 }
+
 .about-content{
   margin-left: 1rem;
 }

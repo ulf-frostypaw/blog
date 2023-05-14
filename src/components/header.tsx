@@ -3,13 +3,13 @@ export default function Header() {
     return(
         <nav>
             <div className="container">
-                <h3><Link href="/">Ulf FrostyPaw</Link></h3>
+                <h2><Link href="/">U</Link></h2>
                 <div className="left">
-                    <Link href="/projects" className="link">
-                        Proyectos
+                    <Link href="/#about" className="link">
+                        Acerca de
                     </Link>
-                    <Link href="/contact" className="link">
-                        Contacto
+                    <Link href="/#projects" className="link">
+                        Proyectos
                     </Link>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import Head from "next/head"
 import Link from "next/link"
 import Header from '../components/Header'
-import {FaReact, FaHtml5, FaCss3Alt, FaPhp, FaTwitter} from 'react-icons/fa'
+import {FaReact, FaHtml5, FaCss3Alt, FaPhp, FaTwitter, FaVuejs} from 'react-icons/fa'
 import {SiNextdotjs, SiGithub, SiTelegram} from 'react-icons/si'
 export default function Home() {
   const [avatarURL, setAvatarURL] = useState();
@@ -40,7 +40,7 @@ export default function Home() {
       </div>
     </div>
     <div className="container">
-      <div className="about">
+      <div className="about" id='about'>
         <h2>Sobre mi</h2>
         <p>Soy un desarrollador Jr. con cinco años de experiencia(siento que todo el tiempo aprendo algo nuevo y sinceramente no me siento <i>"preparado"</i> para estar al siguiente nivel). Desde temprana edad la tecnología ha sido algo de lo que me ha atraído siempre, todo empezó con los simples juegos en Flash. <br /> Me gusta escribir, me gusta aprender idiomas, me fascina convivir con nuevas personas y escuchar todas sus experiencias.</p>
         <div className="flex">
@@ -61,6 +61,9 @@ export default function Home() {
                 <div className="card">
                   <FaCss3Alt className='icon css3' />
                 </div>
+                <div className="card">
+                  <FaVuejs className='icon vuejs' />
+                </div>
               </div>
             </div>
 
@@ -78,10 +81,11 @@ export default function Home() {
       </div>
     </div>
     <div className="container">
-      <div className="projects">
+      <div className="projects" id='projects'>
         <h2>Proyectos</h2>
       </div>
     </div>
+  
     <footer>
         <p>Hecho con ❤️</p>
     </footer>
